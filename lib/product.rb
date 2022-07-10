@@ -5,5 +5,4 @@ class Product
     @price = params[:price]
     @amount = params[:value]
   end
-
 end

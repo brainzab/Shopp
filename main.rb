@@ -4,3 +4,4 @@ require_relative 'lib/movie'
 
 movie = Movie.new(price: 290, amount: 4)
 
+woooh

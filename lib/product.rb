@@ -6,6 +6,10 @@ class Product
     @amount = params[:amount]
   end
 
+  def self.from_file(_file_path)
+    raise NotImplementedError
+  end
+
   def to_s
     "#{@price} руб. (осталось #{@amount})"
   end
@@ -15,7 +19,7 @@ class Product
     @amount = params[:amount] if params[:amount]
   end
 
-  def self.from_file(file_path)
-    raise NotImplementedError
+  def out_of_stock?
+    @amount <= 0
   end
 end

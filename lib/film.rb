@@ -2,13 +2,13 @@ class Film < Product
   attr_reader :title, :year, :director
 
   def self.from_file(file_path)
-    lines = File.readlines(file_path).map { |line| line.chomp }
-    self.new(
+    lines = File.readlines(file_path).map(&:chomp)
+    new(
       title: lines[0],
       director: lines[1],
       year: lines[2],
-      price: lines[3],
-      amount: lines[4]
+      price: lines[3].to_i,
+      amount: lines[4].to_i
     )
   end
 
@@ -29,5 +29,5 @@ class Film < Product
     @year = params[:year] if params[:year]
     @director = params[:director] if params[:director]
   end
-
 end
+

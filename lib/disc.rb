@@ -1,3 +1,4 @@
+
 class Disc < Product
   attr_reader :album, :performer, :genre, :year
 
@@ -8,8 +9,8 @@ class Disc < Product
       performer: lines[1],
       genre: lines[2],
       year: lines[3],
-      price: lines[4],
-      amount: lines[5]
+      price: lines[4].to_i,
+      amount: lines[5].to_i
     )
   end
 
@@ -23,7 +24,7 @@ class Disc < Product
   end
 
   def to_s
-    "Альбом #{performer} — «#{album}», #{genre}, #{year}"
+    "Альбом #{performer} — «#{album}», #{genre}, #{year}. #{super}"
   end
 
   def update(params)

@@ -16,6 +16,7 @@ until user_choice.zero?
   puts '0. Выход'
 
   puts 'Что хотите купить?'
+  print "> "
   user_choice = $stdin.gets.to_i
 
   next if user_choice.zero?

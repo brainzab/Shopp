@@ -18,11 +18,7 @@ class Book < Product
     @genre = params[:genre]
     @author = params[:author]
   end
-
-  def to_s
-    "Книга «#{title}», #{genre}, автор - #{author}, #{super}"
-  end
-
+  
   def info
     "Книга «#{@title}», #{@genre}, автор — #{@author}"
   end

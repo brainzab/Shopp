@@ -19,10 +19,6 @@ class Film < Product
     @director = params[:director]
   end
 
-  def to_s
-    "Фильм «#{title}», #{year}. реж. #{director}. #{super}"
-  end
-
   def info
     "Фильм «#{@title}», #{@year}, реж. #{@director}"
   end

@@ -1,5 +1,5 @@
 class ShoppingCart
-  attr_reader :items, :sum
+  attr_reader :sum, :items
 
   def initialize
     @items = []
@@ -14,5 +14,12 @@ class ShoppingCart
 
   def to_a
     @items
+  end
+
+  def to_s
+    @items
+      .tally
+      .map { |item, amount| "#{item.info} X #{amount} шт. = #{item.price * amount} руб." }
+      .join("\n")
   end
 end

@@ -1,10 +1,9 @@
-
 class Disc < Product
   attr_reader :album, :performer, :genre, :year
 
   def self.from_file(file_path)
-    lines = File.readlines(file_path).map { |line| line.chomp }
-    self.new(
+    lines = File.readlines(file_path).map(&:chomp)
+    new(
       album: lines[0],
       performer: lines[1],
       genre: lines[2],
@@ -21,6 +20,10 @@ class Disc < Product
     @performer = params[:performer]
     @genre = params[:genre]
     @year = params[:year]
+  end
+
+  def info
+    "Альбом #{performer} — «#{@title}», #{@genre}, #{@year}"
   end
 
   def to_s

@@ -12,25 +12,25 @@ user_choice = -1
 
 until user_choice.zero?
   purchase_list.delete_if { |item| item.amount <= 0 }
-  puts purchase_list.map.with_index(1) { |product, i| "#{i}. #{product}" }
+  puts purchase_list.map.with_index(1) { |product, index| "#{index}. #{product}" }
   puts '0. Выход'
 
   puts 'Что хотите купить?'
   print '> '
   user_choice = $stdin.gets.to_i
 
-  next if user_choice.zero?
+  break if user_choice.zero?
 
   shopping_cart.add_item(collection.products[user_choice - 1])
   puts 'Вы выбрали:'
-  puts shopping_cart.to_a
+  puts shopping_cart.to_s
   puts "Всего товаров на сумму: #{shopping_cart.sum} руб."
   puts '-------------------------------------------------------------'
 end
 
 if shopping_cart.items.any?
   puts 'Вы купили:'
-  puts shopping_cart.to_a
+  puts shopping_cart.to_s
   puts "C Вас #{shopping_cart.sum} руб. Спасибо за покупки!"
 else
   puts 'Вы ничего не выбрали.'

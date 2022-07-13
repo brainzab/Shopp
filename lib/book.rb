@@ -2,8 +2,8 @@ class Book < Product
   attr_reader :title, :genre, :author
 
   def self.from_file(file_path)
-    lines = File.readlines(file_path).map { |line| line.chomp }
-    self.new(
+    lines = File.readlines(file_path).map(&:chomp)
+    new(
       title: lines[0],
       genre: lines[1],
       author: lines[2],
@@ -14,7 +14,6 @@ class Book < Product
 
   def initialize(params)
     super
-
     @title = params[:title]
     @genre = params[:genre]
     @author = params[:author]
@@ -22,6 +21,10 @@ class Book < Product
 
   def to_s
     "Книга «#{title}», #{genre}, автор - #{author}, #{super}"
+  end
+
+  def info
+    "Книга «#{@title}», #{@genre}, автор — #{@author}"
   end
 
   def update(params)

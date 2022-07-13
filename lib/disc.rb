@@ -26,10 +26,6 @@ class Disc < Product
     "Альбом #{performer} — «#{@title}», #{@genre}, #{@year}"
   end
 
-  def to_s
-    "Альбом #{performer} — «#{album}», #{genre}, #{year}. #{super}"
-  end
-
   def update(params)
     super
     @album = params[:album] if params[:album]
